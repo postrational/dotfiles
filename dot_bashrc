@@ -29,5 +29,5 @@ PS4='+ '
 prompt
 
 ### Aliases ###
-alias ls='ls -ahvlG --color=auto'
-alias hist='history | grep -i'
+DOTFILES_PATH="${HOME}/.local/share/chezmoi"
+source ${DOTFILES_PATH}/.aliases.sh
