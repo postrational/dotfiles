@@ -32,6 +32,16 @@ export DISABLE_VENV_CD=1
 export VIRTUALENVWRAPPER_VIRTUALENV=$(which virtualenv)
 export VIRTUALENVWRAPPER_PYTHON=$(which python3)
 
+### Zsh plugins ###
+# zsh-history-substring-search
+source ${DOTFILES_PATH}/vendor/zsh-history-substring-search/zsh-history-substring-search.zsh
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+
+# zsh-autosuggestions
+source ${DOTFILES_PATH}/vendor/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+
 ### Powerlevel10k ###
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.

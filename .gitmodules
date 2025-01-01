@@ -1,3 +1,12 @@
 [submodule "vendor/p10k"]
 	path = vendor/p10k
 	url = https://github.com/romkatv/powerlevel10k
+[submodule "zsh-history-substring-search"]
+	path = zsh-history-substring-search
+	url = https://github.com/zsh-users/zsh-history-substring-search.git
+[submodule "vendor/zsh-history-substring-search"]
+	path = vendor/zsh-history-substring-search
+	url = https://github.com/zsh-users/zsh-history-substring-search.git
+[submodule "vendor/zsh-autosuggestions"]
+	path = vendor/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions.git
