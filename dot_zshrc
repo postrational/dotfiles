@@ -65,6 +65,8 @@ fi
 source ${DOTFILES_PATH}/vendor/zsh-history-substring-search/zsh-history-substring-search.zsh
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
+bindkey "$terminfo[kcuu1]" history-substring-search-up
+bindkey "$terminfo[kcud1]" history-substring-search-down
 
 # zsh-autosuggestions
 source ${DOTFILES_PATH}/vendor/zsh-autosuggestions/zsh-autosuggestions.zsh
