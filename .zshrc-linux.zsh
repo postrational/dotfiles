@@ -1,0 +1,6 @@
+alias ls="ls -ahvlG --color"
+alias open="xdg-open"
+alias systemctl="sudo systemctl"
+alias journalctl="sudo journalctl"
+alias apt="sudo apt"
+alias pacman="sudo pacman"

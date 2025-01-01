@@ -1,0 +1,51 @@
+DOTFILES_PATH=${XDG_DATA_HOME:-$HOME/.local/share}/chezmoi
+
+### Aliases ###
+alias grep='grep --color=auto'
+alias ls='ls -ahvlG'
+alias calc="qalc"
+alias history='fc -fnl 1'
+alias hist='history | grep -i'
+alias pipup='pip install --upgrade pip'
+
+### Local settings ###
+# Load OS-specific settings
+UNAME="$(uname -s)"
+case "${UNAME}" in
+    Linux*)     source ${DOTFILES_PATH}/.zshrc-linux.zsh;;
+    Darwin*)    source ${DOTFILES_PATH}/.zshrc-macos.zsh;;
+    CYGWIN*)    source ${DOTFILES_PATH}/.zshrc-cygwin.zsh;;
+    *)          echo "Loading Michal's system settings: Unrecognized OS";;
+esac
+
+# Load local settings if .zshrc-local file exists
+if [ -f $HOME/.zshrc-local ]; then
+    source $HOME/.zshrc-local
+fi
+[[ ! -f ~/.zshrc-local.zsh ]] || source ~/.zshrc-local.zsh
+
+
+### Virtualenvwrapper settings ###
+# make sure to run: pip3 install virtualenvwrapper
+source $commands[virtualenvwrapper_lazy.sh]
+export DISABLE_VENV_CD=1
+export VIRTUALENVWRAPPER_VIRTUALENV=$(which virtualenv)
+export VIRTUALENVWRAPPER_PYTHON=$(which python3.10)
+
+### Powerlevel10k ###
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Enable Powerlevel10k
+source ${XDG_DATA_HOME:-$HOME/.local/share}/chezmoi/vendor/p10k/powerlevel10k.zsh-theme
+
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
