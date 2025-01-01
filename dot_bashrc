@@ -1,0 +1,33 @@
+### My Bash prompt ###
+prompt() {
+local BLUE="\[\033[0;34m\]"
+local RED="\[\033[0;31m\]"
+local LIGHT_RED="\[\033[1;31m\]"
+local WHITE="\[\033[1;37m\]"
+local GREEN="\[\033[32m\]"
+local YELLOW="\[\033[33m\]"
+local NO_COLOUR="\[\033[0m\]"
+case $TERM in
+    xterm*|rxvt*)
+        TITLEBAR='\[\033]0;\u@\h:\w\007\]'
+        ;;
+    *)
+        TITLEBAR=""
+        ;;
+esac
+
+PS1="${TITLEBAR}\
+$NO_COLOUR[\t]\
+ $GREEN\u@\h$YELLOW \w$NO_COLOUR $BLUE[\
+\` echo \$?;\`\
+]$NO_COLOUR
+\$ "
+
+PS2='> '
+PS4='+ '
+}
+prompt
+
+### Aliases ###
+alias ls='ls -ahvlG --color=auto'
+alias hist='history | grep -i'
