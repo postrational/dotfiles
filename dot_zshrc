@@ -30,7 +30,7 @@ fi
 source $commands[virtualenvwrapper_lazy.sh]
 export DISABLE_VENV_CD=1
 export VIRTUALENVWRAPPER_VIRTUALENV=$(which virtualenv)
-export VIRTUALENVWRAPPER_PYTHON=$(which python3.10)
+export VIRTUALENVWRAPPER_PYTHON=$(which python3)
 
 ### Powerlevel10k ###
 
