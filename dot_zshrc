@@ -83,5 +83,5 @@ case "${UNAME}" in
 esac
 
 # Load local settings if .zshrc-local file exists
-[[ ! -f ~/.zshrc-local.zsh ]] || source ~/.zshrc-local.zsh
+[[ ! -f ~/.zshrc-local ]] || source ~/.zshrc-local
 
