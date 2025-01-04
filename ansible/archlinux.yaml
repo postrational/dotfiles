@@ -1,0 +1,44 @@
+---
+- name: My personal Arch setup
+  hosts: localhost
+  connection: local
+  gather_facts: true
+  become: true
+
+  tasks:
+    - name: Update system packages using pacman
+      community.general.pacman:
+        update_cache: yes
+        upgrade: yes
+
+    - name: Install pacman packages
+      community.general.pacman:
+        name:
+          - base-devel
+          - bat
+          - broot
+          - btop
+          - chezmoi
+          - fzf
+          - git
+          - libqalculate
+          - lsd
+          - ncdu
+          - python-virtualenvwrapper
+          - tldr
+          - tokei
+          - vim
+          - zsh
+        state: present
+
+    - name: Install AUR packages
+      kewlfft.aur.aur:
+        name:
+          - pica
+          - syncthing
+          - syncthingtray-qt6
+        state: present
+
+    - name: Set up dotfiles
+      ansible.builtin.include_tasks:
+        file: playbooks/dotfiles.yaml

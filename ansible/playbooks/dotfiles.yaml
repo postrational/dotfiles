@@ -1,0 +1,16 @@
+    - name: Ensure chezmoi is installed via Homebrew
+      community.general.homebrew:
+        name: chezmoi
+        state: present
+
+    - name: Initialize chezmoi if not already done
+      ansible.builtin.command:
+        cmd: chezmoi init https://github.com/postrational/dotfiles.git
+      args:
+        creates: ~/.local/share/chezmoi
+
+    - name: Apply chezmoi dotfiles
+      ansible.builtin.command:
+        cmd: chezmoi apply --verbose
+      register: chezmoi_apply
+      changed_when: "'No changes' not in chezmoi_apply.stdout"

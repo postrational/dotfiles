@@ -5,9 +5,9 @@ export LANG=en_US.UTF-8
 export LANGUAGE=en_US
 export LC_ALL=en_US.UTF-8
 
-### Aliases ###
-alias history='fc -fnl 1'
-source ${DOTFILES_PATH}/.aliases.sh
+
+### Shell settings ###
+export EDITOR=vim
 
 
 ### History settings ###
@@ -81,6 +81,10 @@ case "${UNAME}" in
     CYGWIN*)    source ${DOTFILES_PATH}/.zshrc-cygwin.zsh;;
     *)          echo "Loading Michal's system settings: Unrecognized OS";;
 esac
+
+### Aliases ###
+alias history='fc -fnl 1'
+source ${DOTFILES_PATH}/.aliases.sh
 
 # Load local settings if .zshrc-local file exists
 [[ ! -f ~/.zshrc-local ]] || source ~/.zshrc-local

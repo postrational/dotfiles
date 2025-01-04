@@ -1,0 +1,48 @@
+---
+- name: My personal MacOS setup
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  become: false
+
+  tasks:
+    - name: Ensure Ansible community.general collection is installed
+      ansible.builtin.command:
+        cmd: ansible-galaxy collection install community.general
+      changed_when: false
+
+    - name: Check if Homebrew is installed
+      ansible.builtin.command:
+        cmd: which brew
+      register: brew_installed
+      changed_when: false
+      ignore_errors: true
+
+    - name: Install Homebrew if not present
+      ansible.builtin.shell:
+        cmd: >
+          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+      when: brew_installed.failed
+
+    - name: Install Homebrew packages
+      community.general.homebrew:
+        name:
+          - bat
+          - broot
+          - btop
+          - chezmoi
+          - fzf
+          - libqalculate
+          - lsd
+          - ncdu
+          - nmap
+          - syncthing
+          - tldr
+          - tmux
+          - tokei
+          - watch
+        state: present
+
+    - name: Set up dotfiles
+      ansible.builtin.include_tasks:
+        file: playbooks/dotfiles.yaml

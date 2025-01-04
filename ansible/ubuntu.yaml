@@ -1,0 +1,52 @@
+---
+- name: My personal Ubuntu setup
+  hosts: localhost
+  connection: local
+  gather_facts: true
+  become: true
+
+  tasks:
+    - name: Update system packages using apt
+      ansible.builtin.apt:
+        update_cache: yes
+        upgrade: dist
+
+    - name: Install essential apt packages
+      ansible.builtin.apt:
+        name:
+          - build-essential
+          - bat
+          - btop
+          - fzf
+          - git
+          - lsd
+          - python-is-python3
+          - python3-virtualenvwrapper
+          - qalc
+          - tldr
+          - tmux
+          - vim
+          - zsh
+        state: present
+
+    - name: Ensure snapd is installed
+      ansible.builtin.apt:
+        name: snapd
+        state: present
+
+    - name: Define list of Snap packages
+      set_fact:
+        snap_packages:
+          - name: syncthing
+          - name: chezmoi
+            classic: true
+
+    - name: Install multiple snap packages with optional classic flag
+      community.general.snap:
+        name: "{{ item.name }}"
+        classic: "{{ item.classic | default(omit) }}"
+      loop: "{{ snap_packages }}"
+
+    - name: Set up dotfiles
+      ansible.builtin.include_tasks:
+        file: playbooks/dotfiles.yaml
