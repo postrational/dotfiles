@@ -28,6 +28,7 @@
       community.general.homebrew:
         name:
           - bat
+          - bitwarden-cli
           - broot
           - btop
           - chezmoi

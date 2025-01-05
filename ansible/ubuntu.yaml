@@ -37,9 +37,10 @@
     - name: Define list of Snap packages
       set_fact:
         snap_packages:
-          - name: syncthing
+          - name: bw
           - name: chezmoi
             classic: true
+          - name: syncthing
 
     - name: Install multiple snap packages with optional classic flag
       community.general.snap:

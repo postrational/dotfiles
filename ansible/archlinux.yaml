@@ -16,6 +16,7 @@
         name:
           - base-devel
           - bat
+          - bitwarden-cli
           - broot
           - btop
           - chezmoi
