@@ -1,0 +1,188 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """
+[](teal1)\
+$os\
+$hostname\
+[](fg:teal1 bg:teal2)\
+$python\
+[](fg:teal2 bg:teal3)\
+$directory\
+[](fg:teal3)\
+$fill\
+[](teal4)\
+$git_branch\
+$git_status\
+[](bg:teal4 fg:teal5)\
+$c\
+$rust\
+$golang\
+$nodejs\
+$haskell\
+$docker_context\
+$conda\
+[](bg:teal5 fg:crimson1 )\
+$status\
+$jobs\
+$cmd_duration\
+[](bg:crimson1 fg:color_bg1)\
+$time\
+[ ](fg:color_bg1)\
+$line_break$character"""
+
+palette = 'teal'
+
+[palettes.teal]
+teal1 = '#003747'
+teal2 = '#065465'
+teal3 = '#046276'
+teal4 = '#026a81'
+teal5 = '#06768d'
+crimson1 = '#631504'
+crimson2 = '#8d0647'
+crimson3 = '#630432'
+color_fg0 = '#fbf1c7'
+color_fg1 = '#ebdbb2'
+color_fg2 = '#d5c4a1'
+color_fg3 = '#bdae93'
+color_fg4 = '#a89984'
+color_bg0 = '#282828'
+color_bg1 = '#3c3836'
+color_bg2 = '#504945'
+color_bg3 = '#665c54'
+
+
+### Teal1 ###
+[os]
+disabled = false
+style = "bg:teal1 fg:color_fg0"
+
+[os.symbols]
+Windows = "󰍲"
+Ubuntu = "󰕈"
+SUSE = ""
+Raspbian = "󰐿"
+Mint = "󰣭"
+Macos = "󰀵"
+Manjaro = ""
+Linux = "󰌽"
+Gentoo = "󰣨"
+Fedora = "󰣛"
+Alpine = ""
+Amazon = ""
+Android = ""
+Arch = "󰣇"
+Artix = "󰣇"
+EndeavourOS = "󰣇"
+CentOS = ""
+Debian = "󰣚"
+Redhat = "󱄛"
+RedHatEnterprise = "󱄛"
+Pop = ""
+
+[hostname]
+ssh_only = true
+style = "bg:teal1 fg:color_fg1"
+format = '[ $hostname ]($style)'
+
+### Teal2 ###
+[python]
+symbol = ""
+style = "bg:color_blue"
+format = '[[ $symbol( $virtualenv) ](fg:color_fg2 bg:teal2)]($style)'
+
+### Teal3 ###
+[directory]
+style = "fg:color_fg0 bg:teal3"
+format = "[ $path $read_only ]($style)"
+read_only = '' #    󰢬 
+truncation_length = 5
+truncation_symbol = "…/"
+truncate_to_repo = true
+
+[directory.substitutions]
+"Documents" = "󰈙"
+"Downloads" = ""
+"Music" = "󰝚"
+"Pictures" = ""
+"Developer" = "󰲋"
+
+[fill]
+symbol = '─'
+
+### Teal4 ###
+[git_branch]
+symbol = ""
+style = "bg:teal4"
+format = '[[ $symbol $branch ](fg:color_fg2 bg:teal4)]($style)'
+
+[git_status]
+style = "bg:teal4"
+modified = '!${count}'
+untracked = '?${count}'
+format = '[[($all_status$ahead_behind )](fg:color_fg2 bg:teal4)]($style)'
+
+### Teal5 ###
+[nodejs]
+symbol = ""
+style = "bg:teal5"
+format = '[[ $symbol( $version) ](fg:color_fg0 bg:teal5)]($style)'
+
+[c]
+symbol = " "
+style = "bg:teal5"
+format = '[[ $symbol( $version) ](fg:color_fg0 bg:teal5)]($style)'
+disabled = true
+
+[rust]
+symbol = ""
+style = "bg:teal5"
+format = '[[ $symbol( $version) ](fg:color_fg0 bg:teal5)]($style)'
+disabled = true
+
+[golang]
+symbol = ""
+style = "bg:teal5"
+format = '[[ $symbol( $version) ](fg:color_fg0 bg:teal5)]($style)'
+disabled = true
+
+[haskell]
+symbol = ""
+style = "bg:teal5"
+format = '[[ $symbol( $version) ](fg:color_fg0 bg:teal5)]($style)'
+disabled = true
+
+[docker_context]
+symbol = ""
+style = "bg:teal5"
+format = '[[ $symbol( $context) ](fg:#83a598 bg:teal5)]($style)'
+
+[conda]
+style = "bg:teal5"
+format = '[[ $symbol( $environment) ](fg:#83a598 bg:teal5)]($style)'
+
+[status]
+style = "bg:crimson1"
+format = '[ $symbol $status ]($style)'
+map_symbol = true
+disabled = false
+
+[cmd_duration]
+style = "bg:crimson1"
+format = '[ $duration ]($style)'
+min_time=3000
+disabled = false
+
+[jobs]
+style = "bg:crimson1"
+format = "[ $symbol$number]($style) "
+number_threshold = 1
+
+[time]
+disabled = false
+time_format = "%R"
+style = "bg:color_bg1"
+format = '[[  $time ](fg:color_fg4 bg:color_bg1)]($style)'
+
+[line_break]
+disabled = false

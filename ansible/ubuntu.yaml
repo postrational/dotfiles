@@ -41,11 +41,14 @@
           - name: chezmoi
             classic: true
           - name: syncthing
+          - name: starship
+            channel: edge
 
     - name: Install multiple snap packages with optional classic flag
       community.general.snap:
         name: "{{ item.name }}"
         classic: "{{ item.classic | default(omit) }}"
+        channel: "{{ item.channel | default(omit) }}"
       loop: "{{ snap_packages }}"
 
     - name: Set up dotfiles

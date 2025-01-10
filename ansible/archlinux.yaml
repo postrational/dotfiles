@@ -26,6 +26,7 @@
           - lsd
           - ncdu
           - python-virtualenvwrapper
+          - starship
           - tldr
           - tokei
           - vim
