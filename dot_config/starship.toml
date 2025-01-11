@@ -167,12 +167,12 @@ format = '[ $symbol $status ]($style)'
 map_symbol = true
 disabled = false
 symbol = ""
+sigint_symbol = ""
 
 [cmd_duration]
 style = "bg:crimson1"
-format = '[ $duration ]($style)'
+format = '[  $duration ]($style)'
 min_time=3000
-disabled = false
 
 [jobs]
 style = "bg:crimson1"
