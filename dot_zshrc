@@ -9,11 +9,12 @@ export LC_ALL=en_US.UTF-8
 ### Shell settings ###
 export VISUAL=vim             # default editor
 bindkey -e                    # use emacs keybindings
-autoload -Uz compinit && compinit  # enable completions
 setopt INTERACTIVE_COMMENTS   # allow comments in interactive shell
 setopt CORRECT                # autocorrect typos in commands
 setopt NUMERIC_GLOB_SORT      # sort filenames numerically
-
+autoload -Uz compinit         # enable completions
+compinit
+zstyle ':completion:*' menu select
 
 ### History settings ###
 HISTFILE=$HOME/.zsh_history    # enable history saving on shell exit
@@ -28,6 +29,21 @@ setopt HIST_IGNORE_SPACE       # don't save commands starting with space
 
 ### Starship.rs prompt ###
 eval "$(starship init zsh)"
+
+
+### Zsh plugins ###
+# zsh-history-substring-search
+source ${DOTFILES_PATH}/vendor/zsh-history-substring-search/zsh-history-substring-search.zsh
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+bindkey "$terminfo[kcuu1]" history-substring-search-up
+bindkey "$terminfo[kcud1]" history-substring-search-down
+
+# zsh-autosuggestions
+source ${DOTFILES_PATH}/vendor/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# fzf-tab
+source ${DOTFILES_PATH}/vendor/zsh-fzf-tab/fzf-tab.plugin.zsh
 
 
 ### Virtualenvwrapper settings ###
@@ -54,20 +70,6 @@ else
     echo "Warning: virtualenvwrapper not found. Install with: pip install virtualenvwrapper"
 fi
 
-
-### Zsh plugins ###
-# zsh-history-substring-search
-source ${DOTFILES_PATH}/vendor/zsh-history-substring-search/zsh-history-substring-search.zsh
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
-bindkey "$terminfo[kcuu1]" history-substring-search-up
-bindkey "$terminfo[kcud1]" history-substring-search-down
-
-# zsh-autosuggestions
-source ${DOTFILES_PATH}/vendor/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-# fzf-tab
-source ${DOTFILES_PATH}/vendor/zsh-fzf-tab/fzf-tab.plugin.zsh
 
 ### Local settings ###
 # Load OS-specific settings
