@@ -7,3 +7,6 @@
 [submodule "vendor/zsh-autosuggestions"]
 	path = vendor/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions.git
+[submodule "vendor/zsh-fzf-tab"]
+	path = vendor/zsh-fzf-tab
+	url = https://github.com/Aloxaf/fzf-tab

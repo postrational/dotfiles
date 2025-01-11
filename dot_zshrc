@@ -66,6 +66,8 @@ bindkey "$terminfo[kcud1]" history-substring-search-down
 # zsh-autosuggestions
 source ${DOTFILES_PATH}/vendor/zsh-autosuggestions/zsh-autosuggestions.zsh
 
+# fzf-tab
+source ${DOTFILES_PATH}/vendor/zsh-fzf-tab/fzf-tab.plugin.zsh
 
 ### Local settings ###
 # Load OS-specific settings
