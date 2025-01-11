@@ -166,6 +166,7 @@ style = "bg:crimson1"
 format = '[ $symbol $status ]($style)'
 map_symbol = true
 disabled = false
+symbol = ""
 
 [cmd_duration]
 style = "bg:crimson1"
