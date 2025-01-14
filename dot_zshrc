@@ -32,18 +32,22 @@ eval "$(starship init zsh)"
 
 
 ### Zsh plugins ###
+# zsh-syntax-highlighting
+source ${DOTFILES_PATH}/plugins/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
+
 # zsh-history-substring-search
-source ${DOTFILES_PATH}/vendor/zsh-history-substring-search/zsh-history-substring-search.zsh
+source ${DOTFILES_PATH}/plugins/zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 bindkey "$terminfo[kcuu1]" history-substring-search-up
 bindkey "$terminfo[kcud1]" history-substring-search-down
 
 # zsh-autosuggestions
-source ${DOTFILES_PATH}/vendor/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ${DOTFILES_PATH}/plugins/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 # fzf-tab
-source ${DOTFILES_PATH}/vendor/zsh-fzf-tab/fzf-tab.plugin.zsh
+source ${DOTFILES_PATH}/plugins/zsh/zsh-fzf-tab/fzf-tab.plugin.zsh
 
 
 ### Virtualenvwrapper settings ###

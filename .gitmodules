@@ -10,3 +10,6 @@
 [submodule "vendor/zsh-fzf-tab"]
 	path = plugins/zsh/zsh-fzf-tab
 	url = https://github.com/Aloxaf/fzf-tab
+[submodule "plugins/zsh/zsh-syntax-highlighting"]
+	path = plugins/zsh/zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting
