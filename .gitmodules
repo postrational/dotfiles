@@ -13,3 +13,6 @@
 [submodule "plugins/zsh/zsh-syntax-highlighting"]
 	path = plugins/zsh/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting
+[submodule "plugins/tmux/tpm"]
+	path = plugins/tmux/tpm
+	url = https://github.com/tmux-plugins/tpm
