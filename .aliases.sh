@@ -8,3 +8,4 @@ alias cat='bat'
 alias htop='btop'
 alias calc="qalc"
 alias ls='lsd -al --git --header'
+alias path='realpath'
