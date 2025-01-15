@@ -163,7 +163,7 @@ format = '[[ $symbol( $environment) ](fg:#83a598 bg:teal5)]($style)'
 
 [status]
 style = "bg:crimson1"
-format = '[ $symbol $status ]($style)'
+format = '[ $symbol$status ]($style)'
 map_symbol = true
 disabled = false
 symbol = ""
@@ -176,8 +176,9 @@ min_time=3000
 
 [jobs]
 style = "bg:crimson1"
-format = "[ $symbol$number]($style) "
-number_threshold = 1
+format = "[ $symbol$number ]($style)"
+number_threshold = 2
+symbol = ""
 
 [time]
 disabled = false
