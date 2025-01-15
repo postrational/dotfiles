@@ -45,6 +45,9 @@
           - watch
         state: present
 
+    - name: Set DNS search domain for Wi-Fi
+      shell: "networksetup -setsearchdomains Wi-Fi home"
+
     - name: Set up dotfiles
       ansible.builtin.include_tasks:
         file: playbooks/dotfiles.yaml
