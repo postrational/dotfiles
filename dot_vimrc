@@ -1,147 +1,34 @@
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Based on the Ultimate Vim configuration from Amir Salihefendic
-"           https://github.com/amix/vimrc
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set packpath+=~/.local/share/chezmoi/plugins/vim
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => General
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Sets how many lines of history VIM has to remember
-set history=700
+:colorscheme gruvbox
 
-" Enable filetype plugins
-filetype plugin on
-filetype indent on
-
-" Set to auto read when a file is changed from the outside
-set autoread
-
-" :W sudo saves the file
-" (useful for handling the permission-denied error)
-command W w !sudo tee % > /dev/null
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => VIM user interface
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Show status line
-set laststatus=2
-
-"Show line numbers
+" Show line numbers by default
 set number
 
-"Always show current position
-set ruler
-
-" Height of the command bar
-set cmdheight=2
-
-" A buffer becomes hidden when it is abandoned
-set hid
-
-" Configure backspace so it acts as it should act
-set backspace=eol,start,indent
-set whichwrap+=<,>,h,l
-
-" Ignore case when searching
-set ignorecase
-
-" When searching try to be smart about cases
-set smartcase
-
-" Highlight search results
-set hlsearch
-
-" Makes search act like search in modern browsers
-set incsearch
-
-" Don't redraw while executing macros (good performance config)
-set lazyredraw
-
-" For regular expressions turn magic on
-set magic
-
-" Show matching brackets when text indicator is over them
-set showmatch
-" How many tenths of a second to blink when matching brackets
-set mat=2
-
-" No annoying sound on errors
-set noerrorbells
-set novisualbell
-set t_vb=
-set tm=500
-
-" Properly disable sound on errors on MacVim
-if has("gui_macvim")
-    autocmd GUIEnter * set vb t_vb=
-endif
-
-
-" Add a bit extra margin to the left
-set foldcolumn=1
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Colors and Fonts
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Enable syntax highlighting
-syntax enable
-
-" Enable 256 colors palette in Gnome Terminal
-if $COLORTERM == 'gnome-terminal'
-    set t_Co=256
-endif
-
-try
-    colorscheme retrobox
-catch
-endtry
-
-" Set utf8 as standard encoding and en_US as the standard language
-set encoding=utf8
-
-" Use Unix as the standard file type
-set ffs=unix,dos,mac
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Invisibles
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"Invisible characters
 set list
-set listchars=tab:▸\ ,eol:¬,trail:˽
-
-"Invisible character colors
+set listchars=tab:▸\ ,trail:˽
 highlight NonText guifg=#4a4a59
-highlight SpecialKey guifg=#4a4a59
+highlight SpecialKey guifg=#5a4a59
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Files, backups and undo
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Turn backup off, since most stuff is in SVN, git et.c anyway...
-set nobackup
-set nowb
-set noswapfile
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Text, tab and indent related
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Use spaces instead of tabs
 set expandtab
-
-" Be smart when using tabs ;)
 set smarttab
-
-" 1 tab == 4 spaces
 set shiftwidth=4
 set tabstop=4
 
-" Linebreak on 500 characters
-set lbr
-set tw=500
+" Enable mouse support
+set mouse=a
 
-set ai "Auto indent
-set si "Smart indent
-set wrap "Wrap lines
+" :W sudo saves the file
+command W w !sudo tee % > /dev/null
+
+" Keymap
+" Ctrl-x to split horizontally
+nnoremap <C-x> :split<CR>
+
+" Ctrl-X (Shift + Ctrl + x) to split vertically
+nnoremap <C-S-x> :vsplit<CR>
+
+" Ctrl-T to open a new tab
+nnoremap <C-t> :tabnew<CR>

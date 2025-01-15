@@ -16,3 +16,12 @@
 [submodule "plugins/tmux/tpm"]
 	path = plugins/tmux/tpm
 	url = https://github.com/tmux-plugins/tpm
+[submodule "plugins/vim/pack/plugins/start/gruvbox"]
+	path = plugins/vim/pack/plugins/start/gruvbox
+	url = https://github.com/morhetz/gruvbox.git
+[submodule "plugins/vim/pack/plugins/start/lightline.vim"]
+	path = plugins/vim/pack/plugins/start/lightline.vim
+	url = https://github.com/itchyny/lightline.vim
+[submodule "plugins/vim/pack/plugins/start/vim-sensible"]
+	path = plugins/vim/pack/plugins/start/vim-sensible
+	url = https://github.com/tpope/vim-sensible
