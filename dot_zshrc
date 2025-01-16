@@ -12,6 +12,7 @@ bindkey -e                    # use emacs keybindings
 setopt INTERACTIVE_COMMENTS   # allow comments in interactive shell
 setopt CORRECT                # autocorrect typos in commands
 setopt NUMERIC_GLOB_SORT      # sort filenames numerically
+setopt LONG_LIST_JOBS         # show PID when listing jobs
 autoload -Uz compinit         # enable completions
 compinit
 zstyle ':completion:*' menu select
