@@ -14,6 +14,7 @@
     - name: Install pacman packages
       community.general.pacman:
         name:
+          - atuin
           - base-devel
           - bat
           - bitwarden-cli

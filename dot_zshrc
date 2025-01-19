@@ -10,7 +10,6 @@ export LC_ALL=en_US.UTF-8
 export VISUAL=vim             # default editor
 bindkey -e                    # use emacs keybindings
 setopt INTERACTIVE_COMMENTS   # allow comments in interactive shell
-setopt CORRECT                # autocorrect typos in commands
 setopt NUMERIC_GLOB_SORT      # sort filenames numerically
 setopt LONG_LIST_JOBS         # show PID when listing jobs
 autoload -Uz compinit         # enable completions
@@ -26,6 +25,9 @@ setopt SHARE_HISTORY           # cross-session history sharing
 setopt HIST_EXPIRE_DUPS_FIRST  # allow dups, but expire old ones when I hit HISTSIZE
 setopt EXTENDED_HISTORY        # save timestamp and runtime information
 setopt HIST_IGNORE_SPACE       # don't save commands starting with space
+
+# atuin history
+eval "$(atuin init zsh)"
 
 
 ### Starship.rs prompt ###
@@ -49,7 +51,6 @@ ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 # fzf-tab
 source ${DOTFILES_PATH}/plugins/zsh/zsh-fzf-tab/fzf-tab.plugin.zsh
-
 
 ### Virtualenvwrapper settings ###
 # Try different possible locations for virtualenvwrapper
@@ -89,6 +90,8 @@ esac
 ### Aliases ###
 alias history='fc -fnl 1'
 source ${DOTFILES_PATH}/.aliases.sh
+
+source ${DOTFILES_PATH}/.xdg.sh
 
 # Load local settings if .zshrc-local file exists
 [[ ! -f ~/.zshrc-local ]] || source ~/.zshrc-local

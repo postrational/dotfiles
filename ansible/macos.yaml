@@ -27,6 +27,7 @@
     - name: Install Homebrew packages
       community.general.homebrew:
         name:
+          - atuin
           - bat
           - bitwarden-cli
           - broot
