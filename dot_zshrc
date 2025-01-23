@@ -3,8 +3,8 @@ DOTFILES_PATH=${XDG_DATA_HOME:-$HOME/.local/share}/chezmoi
 ### Locale ###
 export LANG=en_US.UTF-8
 export LANGUAGE=en_US
-export LC_ALL=en_US.UTF-8
-
+export LC_TIME=en_IE.UTF-8
+export LC_COLLATE=pl_PL.UTF-8
 
 ### Shell settings ###
 export VISUAL=vim             # default editor
