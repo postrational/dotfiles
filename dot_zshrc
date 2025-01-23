@@ -26,9 +26,6 @@ setopt HIST_EXPIRE_DUPS_FIRST  # allow dups, but expire old ones when I hit HIST
 setopt EXTENDED_HISTORY        # save timestamp and runtime information
 setopt HIST_IGNORE_SPACE       # don't save commands starting with space
 
-# atuin history
-eval "$(atuin init zsh)"
-
 
 ### Starship.rs prompt ###
 eval "$(starship init zsh)"
@@ -51,6 +48,9 @@ ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 # fzf-tab
 source ${DOTFILES_PATH}/plugins/zsh/zsh-fzf-tab/fzf-tab.plugin.zsh
+
+# atuin history
+eval "$(atuin init zsh --disable-up-arrow)"
 
 ### Virtualenvwrapper settings ###
 # Try different possible locations for virtualenvwrapper
@@ -90,7 +90,6 @@ esac
 ### Aliases ###
 alias history='fc -fnl 1'
 source ${DOTFILES_PATH}/.aliases.sh
-
 source ${DOTFILES_PATH}/.xdg.sh
 
 # Load local settings if .zshrc-local file exists
