@@ -138,7 +138,6 @@ disabled = true
 symbol = ""
 style = "bg:teal5"
 format = '[[ $symbol( $version) ](fg:color_fg0 bg:teal5)]($style)'
-disabled = true
 
 [golang]
 symbol = ""
