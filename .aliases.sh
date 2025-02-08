@@ -8,4 +8,7 @@ alias cat='bat'
 alias htop='btop'
 alias calc="qalc"
 alias ls='lsd -al --git --header'
+alias l=ls
 alias path='realpath'
+alias python=python3
+
