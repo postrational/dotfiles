@@ -61,11 +61,6 @@ nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>tt <cmd>NvimTreeToggle<cr>
 nnoremap <leader>t. <cmd>NvimTreeFindFile<cr>
 
-nnoremap <leader>mo <C-o>
-
-" Toggle between the last two buffers (:b#)
-nnoremap <leader>bb <C-^>
-
 " Ctrl-x to split horizontally
 nnoremap <C-x> :split<CR>
 
@@ -83,16 +78,20 @@ lua << ENDLUA
 --- KEYMAPS ---
 local keymaps = {
     -- Telescope
-    ["<leader>ff"] = { "<cmd>Telescope find_files<cr>", "Find files" },
-    ["<leader>fg"] = { "<cmd>Telescope live_grep<cr>", "Live grep" },
-    ["<leader>fb"] = { "<cmd>Telescope buffers<cr>", "Find buffers" },
+    ["<leader>ff"] = { ":Telescope find_files<CR>", "Find files" },
+    ["<leader>fg"] = { ":Telescope live_grep<CR>", "Live grep" },
+    ["<leader>fb"] = { ":Telescope buffers<CR>", "Find buffers" },
     -- NvimTree
-    ["<leader>tt"] = { "<cmd>NvimTreeToggle<cr>", "Toggle file explorer" },
-    ["<leader>t."] = { "<cmd>NvimTreeFindFile<cr>", "Find current file in tree" },
+    ["<leader>tt"] = { ":NvimTreeToggle<CR>", "Toggle file explorer" },
+    ["<leader>t."] = { ":NvimTreeFindFile<CR>", "Find current file in tree" },
     -- Navigation
     ["<leader>mo"] = { "<C-o>", "Jump Back <C-o>" },
     ["<leader>mi"] = { "<C-i>", "Jump Forward <C-i>" },
     ["<leader>mb"] = { "<C-^>", "Toggle between last two buffers <C-^>" },
+    ["<leader>mx"] = { ":split<CR>", "Split horizontally <C-x>" },
+    ["<leader>mX"] = { ":vsplit<CR>", "Split vertically <C-X>" },
+    ["<leader>mt"] = { ":tabnew<CR>", "Open new tab <C-t>" },
+
     -- Split management
     ["<C-x>"] = { ":split<CR>", "Split window horizontally" },
     ["<C-S-x>"] = { ":vsplit<CR>", "Split window vertically" },
