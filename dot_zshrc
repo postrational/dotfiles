@@ -53,6 +53,9 @@ source ${DOTFILES_PATH}/plugins/zsh/zsh-fzf-tab/fzf-tab.plugin.zsh
 # atuin history
 eval "$(atuin init zsh --disable-up-arrow)"
 
+# command-not-found
+source ${DOTFILES_PATH}/plugins/zsh/command-not-found.plugin.zsh
+
 ### Virtualenvwrapper settings ###
 # Try different possible locations for virtualenvwrapper
 VIRTUALENV_WRAPPER_LOCATIONS=(
