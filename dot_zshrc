@@ -28,11 +28,28 @@ setopt HIST_EXPIRE_DUPS_FIRST  # allow dups, but expire old ones when I hit HIST
 setopt EXTENDED_HISTORY        # save timestamp and runtime information
 setopt HIST_IGNORE_SPACE       # don't save commands starting with space
 
+### Local settings ###
+# Load OS-specific settings
+UNAME="$(uname -s)"
+case "${UNAME}" in
+    Linux*)     source ${DOTFILES_PATH}/.zshrc-linux.zsh;;
+    Darwin*)    source ${DOTFILES_PATH}/.zshrc-macos.zsh;;
+    CYGWIN*)    source ${DOTFILES_PATH}/.zshrc-cygwin.zsh;;
+    *)          echo "Loading Michal's zsh settings: Unrecognized OS";;
+esac
 
+### Aliases ###
+alias history='fc -fnl 1'
+source ${DOTFILES_PATH}/.aliases.sh
+source ${DOTFILES_PATH}/.xdg.sh
+
+# Load local settings if .zshrc-local file exists
+[[ ! -f ~/.zshrc-local ]] || source ~/.zshrc-local
+
+### Zsh plugins ###
 ### Starship.rs prompt ###
 eval "$(starship init zsh)"
 
-### Zsh plugins ###
 # zsh-syntax-highlighting
 source ${DOTFILES_PATH}/plugins/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
 
@@ -79,23 +96,4 @@ if [[ -n "$VIRTUALENV_WRAPPER_SCRIPT" ]]; then
 else
     echo "Warning: virtualenvwrapper not found. Install with: pip install virtualenvwrapper"
 fi
-
-
-### Local settings ###
-# Load OS-specific settings
-UNAME="$(uname -s)"
-case "${UNAME}" in
-    Linux*)     source ${DOTFILES_PATH}/.zshrc-linux.zsh;;
-    Darwin*)    source ${DOTFILES_PATH}/.zshrc-macos.zsh;;
-    CYGWIN*)    source ${DOTFILES_PATH}/.zshrc-cygwin.zsh;;
-    *)          echo "Loading Michal's zsh settings: Unrecognized OS";;
-esac
-
-### Aliases ###
-alias history='fc -fnl 1'
-source ${DOTFILES_PATH}/.aliases.sh
-source ${DOTFILES_PATH}/.xdg.sh
-
-# Load local settings if .zshrc-local file exists
-[[ ! -f ~/.zshrc-local ]] || source ~/.zshrc-local
 
