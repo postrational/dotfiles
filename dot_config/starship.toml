@@ -41,6 +41,13 @@ teal5 = '#06768d'
 crimson1 = '#631504'
 crimson2 = '#8d0647'
 crimson3 = '#630432'
+crimson4 = '#470a0a'
+crimson5 = '#b21c0e'
+crimson6 = '#cb0e40'
+crimson7 = '#bc4f5e'
+crimson8 = '#cb5382'
+crimson9 = '#d05855'
+yellow1 = '#daa520'
 color_fg0 = '#fbf1c7'
 color_fg1 = '#ebdbb2'
 color_fg2 = '#d5c4a1'
@@ -82,7 +89,7 @@ Pop = ""
 
 [hostname]
 ssh_only = true
-style = "bg:teal1 fg:color_fg1"
+style = "bg:teal1 fg:yellow1"
 format = '[ $hostname ]($style)'
 
 ### Teal2 ###
