@@ -1,7 +1,7 @@
 alias ls="ls -ahvlG --color"
 alias open="xdg-open"
 alias sys="sudo systemctl"
-alias journal="sudo journalctl"
+alias journal="sudo journalctl -fu"
 alias dmesg="sudo dmesg"
 alias apt="sudo apt"
 alias pacman="sudo pacman"
