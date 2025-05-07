@@ -6,7 +6,6 @@ alias pipup='pip install --upgrade pip'
 # Command alternatives
 alias cat='bat'
 alias less='bat --paging always'
-alias htop='btop'
 alias calc="qalc"
 alias ls='lsd -al --git --header'
 alias l=ls
