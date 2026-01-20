@@ -8,3 +8,4 @@ alias pacman="sudo pacman"
 alias service-status="sudo systemctl list-units --type=service --state=loaded --no-pager"
 alias ufw="sudo ufw"
 
+export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
