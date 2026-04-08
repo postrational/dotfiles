@@ -1,5 +1,5 @@
 export SYSTEMD_EDITOR=vim
-export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 alias ls="ls -ahvlG --color"
 alias open="xdg-open"
