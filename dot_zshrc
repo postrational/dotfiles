@@ -37,6 +37,17 @@ setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_FIND_NO_DUPS
 setopt HIST_SAVE_NO_DUPS
 
+### Terminal title ###
+autoload -Uz add-zsh-hook
+set_terminal_title() {
+  if [[ -n "$VIRTUAL_ENV" ]]; then
+    print -n "\033]0;${HOST%%.*} ($(basename "$VIRTUAL_ENV"))\033\\"
+  else
+    print -n "\033]0;${HOST%%.*} ${PWD/#$HOME/~}\033\\"
+  fi
+}
+add-zsh-hook precmd set_terminal_title
+
 ### Local settings ###
 # Load OS-specific settings
 UNAME="$(uname -s)"
@@ -46,6 +57,11 @@ case "${UNAME}" in
     CYGWIN*)    source ${DOTFILES_PATH}/.zshrc-cygwin.zsh;;
     *)          echo "Loading Michal's zsh settings: Unrecognized OS";;
 esac
+
+# Homebrew keg libs (e.g. libbz2.so.1.0 for pyenv Python on Fedora atomic)
+if [[ -n "${HOMEBREW_PREFIX:-}" && -d "${HOMEBREW_PREFIX}/lib" ]]; then
+  export LD_LIBRARY_PATH="${LD_LIBRARY_PATH:+$LD_LIBRARY_PATH:}${HOMEBREW_PREFIX}/lib"
+fi
 
 ### Aliases ###
 alias history='fc -fnl 1'

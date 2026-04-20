@@ -11,4 +11,5 @@ alias ls='lsd -al --git --header'
 alias l=ls
 alias path='realpath'
 alias python=python3
-
+alias nettop='sudo bandwhich'
+alias ntop=nettop
